@@ -217,6 +217,9 @@ for step in progressive:
     except:
         fi_score = 1
     memory.push(torch.cat(list(q)).unsqueeze(0), action, reward, done) # here the n_frame means next frame from the previous time step
+    if fi_score < 0.5:
+        memory.push(torch.cat(list(q)).unsqueeze(0), action, reward,
+                    done)
     episode_len += 1
 
     # Perform one step of the optimization (on the target network)
