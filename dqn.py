@@ -222,6 +222,7 @@ for step in progressive:
                     done)
     episode_len += 1
 
+
     # Perform one step of the optimization (on the target network)
     if step % POLICY_UPDATE == 0:
         optimize_model(train)
